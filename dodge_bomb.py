@@ -152,10 +152,10 @@ def main():
             vy *= -1
         screen.blit(bb_img, bb_rct)
 
-        bb_imgs, bb_accs = init_bb_imgs()  # 時間経過で爆弾拡大＆加速
+        bb_imgs, bb_accs = init_bb_imgs()
         avx = vx*bb_accs[min(tmr//500, 9)]
-        bb_img = bb_imgs[min(tmr//500, 9)]
-        bb_rct.move_ip(avx,vy)
+        bb_img = bb_imgs[min(tmr//500, 9)]  # 爆弾拡大
+        bb_rct.move_ip(avx,vy)  # 爆弾加速
         pg.display.update()
         tmr += 1
         clock.tick(50)
